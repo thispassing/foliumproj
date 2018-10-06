@@ -1,5 +1,5 @@
 # left to do: 
-# add more entries,
+# add more entries (ended aug 19 2014) +japan 
 # change pop-up sizes by year? (hard to do with current format of date)
 # add pictures to pop-up if possible
 
@@ -31,12 +31,12 @@ def color_producer(tag):
         return 'yellow'
 
 
-map = folium.Map(location=[15.666678,101.018695], zoom_start=7, tiles="OpenStreetMap")
+map = folium.Map(location=[0,0], zoom_start=3, tiles="OpenStreetMap")
 
 fgo = folium.FeatureGroup(name="Occasions")
 for lt, ln, pl, tg, d1, oc, pc in zip(lat, lon, place, tag, date1, occasion, picture):
     iframe = folium.IFrame(html=html % (str(oc), str(pl), str(d1), str(pc)), width=175,height=100)
-    fgo.add_child(folium.CircleMarker(location=[lt, ln], popup=folium.Popup(iframe), radius=7, 
+    fgo.add_child(folium.CircleMarker(location=[lt, ln], popup=folium.Popup(iframe), radius=8, 
     fill=True, fill_color=color_producer(tg), fill_opacity=0.7, color='grey'))
 
 
