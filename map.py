@@ -39,9 +39,22 @@ for lt, ln, pl, tg, d1, oc, pc in zip(lat, lon, place, tag, date1, occasion, pic
     fgo.add_child(folium.CircleMarker(location=[lt, ln], popup=folium.Popup(iframe), radius=8, 
     fill=True, fill_color=color_producer(tg), fill_opacity=0.7, color='grey'))
 
+# key - folium.FeatureGroup(name="Key")
+# map.choropleth(
+#     geo_data=state_geo,
+#     name='choropleth',
+#     data=data,
+#     columns=['Tag'],
+#     key_on='feature.id',
+#     fill_color='YlGn',
+#     fill_opacity=0.7,
+#     line_opacity=0.2,
+#     legend_name='Unemployment Rate (%)'
+# )
+
 
 
 map.add_child(fgo)
-#map.add_child(fgp)
-#map.add_child(folium.LayerControl())
+# get_root().html.add_child(folium.Element(legend_html))
+# map.add_child(folium.LayerControl())
 map.save("Map2.html")
