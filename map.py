@@ -17,7 +17,7 @@ place = list(data["PLACE"])
 occasion = list(data["OCCASION"])
 picture = list(data["PICTURE"])
 html = """
-      <b>%s</b> <br> %s <br> %s <br> <img src="%s">
+      <b>%s</b> <br> %s <br> %s <br> %s
 """
 
 def color_producer(tag):
@@ -35,7 +35,7 @@ map = folium.Map(location=[0,0], zoom_start=3, tiles="OpenStreetMap")
 
 fgo = folium.FeatureGroup(name="Occasions")
 for lt, ln, pl, tg, d1, oc, pc in zip(lat, lon, place, tag, date1, occasion, picture):
-    iframe = folium.IFrame(html=html % (str(oc), str(pl), str(d1), str(pc)), width=175,height=100)
+    iframe = folium.IFrame(html=html % (str(oc), str(pl), str(d1), pc), width=250,height=200)
     fgo.add_child(folium.CircleMarker(location=[lt, ln], popup=folium.Popup(iframe), radius=8, 
     fill=True, fill_color=color_producer(tg), fill_opacity=0.7, color='grey'))
 
